@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    container_name: my-local-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"  # maps to localhost:5432
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: Temp1234
+      POSTGRES_DB: real-estate
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
